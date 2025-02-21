@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Profesores</title>
+    <link rel="stylesheet" href="../assets/css/profesores.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="perfil">
+            <img src="imagen-perfil.jpg" alt="Perfil">
+            <h3>Veronica Hernandez</h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Control escolar</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="contenido">
+        <header>
+            <div class="logo">
+                <img src="logo-utd.png" alt="Logo UTD">
+            </div>
+            <div class="titulo">
+                <h1>Nuestros profesores</h1>
+                <p>Inicio / Nosotros / Nuestros profesores</p>
+            </div>
+            <div class="busqueda">
+                <input type="text" id="buscar-profesor" placeholder="Buscar profesor">
+                <button>🔍</button>
+            </div>
+        </header>
+
+        <main>
+            <h2>Equipo docente</h2>
+            <p>Ingeniería en Desarrollo y Gestión de Software</p>
+
+            <!-- Botón para agregar un nuevo profesor -->
+            <button id="agregar-profesor" class="btn-agregar">Agregar Profesor</button>
+
+            <!-- Contenedor vacío donde se generarán los profesores dinámicamente -->
+            <div id="lista-profesores"></div>
+        </main>
+    </div>
+
+    <script src="../assets/js/profesores.js"></script>
+</body>
+</html>

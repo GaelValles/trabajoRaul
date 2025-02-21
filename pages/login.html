@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - UTD</title>
+    <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+<body>
+
+    <!-- Encabezado con logo y barra de navegación -->
+    <header class="header">
+        <img src="../assets/img/utdlogocompleto.png" alt="Logo UTD" class="logo-img">
+        <nav class="navbar">
+            <a href="#">Inicio</a>
+            <a href="#">Alumnos</a>
+            <a href="#">Oferta educativa</a>
+            <a href="#">Nosotros</a>
+        </nav>
+    </header>
+
+    <!-- Banner de bienvenida -->
+    <section class="welcome-banner">
+        <img src="../assets/img/bienvenida.jpg" alt="Bienvenidos Búfalos">
+    </section>
+
+    <!-- Contenedor del formulario -->
+    <main class="container">
+        <section class="login-section">
+            <h2>BIENVENIDOS Búfalos</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Correo electrónico" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Entrar</button>
+                <p id="error-msg" class="error-msg">Usuario o contraseña incorrectos</p>
+            </form>
+        </section>
+    </main>
+
+    <script src="../assets/js/login.js"></script>
+
+</body>
+</html>
