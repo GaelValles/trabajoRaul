@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Profesores</title>
+    <link rel="stylesheet" href="../assets/css/perfil.css">
+    <script>
+        function toggleEdit() {
+            let inputs = document.querySelectorAll(".editable");
+            let spans = document.querySelectorAll(".view-mode");
+            let editButton = document.getElementById("edit-button");
+            let saveButton = document.getElementById("save-button");
+
+            inputs.forEach(input => {
+                input.style.display = input.style.display === "none" ? "inline-block" : "none";
+            });
+
+            spans.forEach(span => {
+                span.style.display = span.style.display === "none" ? "inline-block" : "none";
+            });
+
+            editButton.style.display = editButton.style.display === "none" ? "inline-block" : "none";
+            saveButton.style.display = saveButton.style.display === "none" ? "inline-block" : "none";
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("modo-toggle");
+            const body = document.body;
+
+            // Verifica si hay un tema guardado en localStorage
+            if (localStorage.getItem("tema") === "oscuro") {
+                body.classList.add("dark-mode");
+                toggleButton.textContent = "☀️ Modo Claro";
+            }
+
+            toggleButton.addEventListener("click", function () {
+                body.classList.toggle("dark-mode");
+
+                // Guarda la preferencia del usuario en localStorage
+                if (body.classList.contains("dark-mode")) {
+                    localStorage.setItem("tema", "oscuro");
+                    toggleButton.textContent = " Modo Claro☀️";
+                } else {
+                    localStorage.setItem("tema", "claro");
+                    toggleButton.textContent = " Modo Oscuro🌙";
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="perfil">
+            <img src="../assets/img/miperfil.jpg" alt="Perfil">
+            <h3>Veronica Hernandez</h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Control escolar</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </nav>
+        <button id="modo-toggle">🌙 Modo Oscuro</button>
+    </div>
+
+    <div class="contenido">
+        <header>
+            <div class="logo">
+                <img src="../assets/img/LOGO-UTD-NUEVO-2022_solo-01.jpg" alt="Logo UTD">
+            </div>
+            <div class="titulo">
+                <h1>Mi Perfil</h1>
+                <p>Inicio / Nosotros / Mi Perfil</p>
+            </div>
+            <div class="busqueda">
+                <input type="text" id="buscar-profesor" placeholder="Buscar profesor">
+                <button>🔍</button>
+            </div>
+
+        </header>
+
+        <main>
+            <h2>Veronica Hernández</h2>
+            <p>Especialidad: Ingeniería en Desarrollo y Gestión de Software</p>
+
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label>Nombre completo:</label>
+                    <span class="view-mode">Veronica Hernández</span>
+                    <input type="text" class="editable" value="Veronica Hernández" style="display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Correo electrónico:</label>
+                    <span class="view-mode">hernandezveronica@gmail.com</span>
+                    <input type="email" class="editable" value="hernandezveronica@gmail.com" style="display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Número de teléfono:</label>
+                    <span class="view-mode">+52 6713456723</span>
+                    <input type="tel" class="editable" value=+52 6713456723" style="display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Dirección (opcional):</label>
+                    <span class="view-mode">Calle Armonia #225</span>
+                    <input type="text" class="editable" value="Calle Armonia #225" style="display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Información adicional (opcional):</label>
+                    <span class="view-mode">No especificado</span>
+                    <textarea class="editable" style="display: none;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" id="edit-button" onclick="toggleEdit()">Editar</button>
+                    <button type="submit" id="save-button" style="display: none;">Guardar cambios</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+</body>
+
+</html>

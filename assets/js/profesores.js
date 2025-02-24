@@ -5,22 +5,25 @@ const profesores = [
         especialidad: "Ingeniero en desarrollo de software",
         telefono: "818-246-78-97",
         email: "joseMartinez@gmail.com",
-        foto: "img/jose.jpg"
+        foto: "../assets/img/prof1.jpg"
+        
     },
     {
         nombre: "Ing. Maria Vazquez",
         especialidad: "Ingeniera en sistemas computacionales",
         telefono: "818-635-63-23",
         email: "mariaVazquez@gmail.com",
-        foto: "img/maria.jpg"
+        foto: "../assets/img/prof2.jpg"
     },
     {
         nombre: "Ing. Juan Molina",
         especialidad: "Ingeniero en redes y telecomunicaciones",
         telefono: "818-634-42-24",
         email: "juanMolina@gmail.com",
-        foto: "img/juan.jpg"
+        foto: "../assets/img/prof3.jpg"
+        
     }
+    
 ];
 
 // Crear el contenedor dinámicamente si no existe
@@ -43,7 +46,7 @@ function mostrarProfesores(lista) {
         profesorElemento.classList.add("profesor");
 
         profesorElemento.innerHTML = `
-            <img src="${profesor.foto}" alt="${profesor.nombre}">
+            <img src="${profesor.foto}" >
             <div class="info">
                 <h3>${profesor.nombre}</h3>
                 <p>${profesor.especialidad}</p>

@@ -5,29 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Profesores</title>
     <link rel="stylesheet" href="../assets/css/profesores.css">
-</head>
-<body>
 
+    <script>
+        function toggleEdit() {
+            let inputs = document.querySelectorAll(".editable");
+            let spans = document.querySelectorAll(".view-mode");
+            let editButton = document.getElementById("edit-button");
+            let saveButton = document.getElementById("save-button");
+
+            inputs.forEach(input => {
+                input.style.display = input.style.display === "none" ? "inline-block" : "none";
+            });
+
+            spans.forEach(span => {
+                span.style.display = span.style.display === "none" ? "inline-block" : "none";
+            });
+
+            editButton.style.display = editButton.style.display === "none" ? "inline-block" : "none";
+            saveButton.style.display = saveButton.style.display === "none" ? "inline-block" : "none";
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("modo-toggle");
+            const body = document.body;
+
+            // Verifica si hay un tema guardado en localStorage
+            if (localStorage.getItem("tema") === "oscuro") {
+                body.classList.add("dark-mode");
+                toggleButton.textContent = "☀️ Modo Claro";
+            }
+
+            toggleButton.addEventListener("click", function () {
+                body.classList.toggle("dark-mode");
+
+                // Guarda la preferencia del usuario en localStorage
+                if (body.classList.contains("dark-mode")) {
+                    localStorage.setItem("tema", "oscuro");
+                    toggleButton.textContent = " Modo Claro☀️";
+                } else {
+                    localStorage.setItem("tema", "claro");
+                    toggleButton.textContent = " Modo Oscuro🌙";
+                }
+            });
+        });
+
+    </script>
+    
+</head>
+
+<body>
     <div class="sidebar">
         <div class="perfil">
-            <img src="imagen-perfil.jpg" alt="Perfil">
+            <img src="../assets/img/miperfil.jpg" alt="Perfil">
             <h3>Veronica Hernandez</h3>
         </div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="#">Control escolar</a></li>
                 <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Perfil</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
                 <li><a href="#">Configuración</a></li>
             </ul>
         </nav>
+        <button id="modo-toggle">🌙 Modo Oscuro</button>
     </div>
-
     <div class="contenido">
         <header>
             <div class="logo">
-                <img src="logo-utd.png" alt="Logo UTD">
+                <img src="../assets/img/LOGO-UTD-NUEVO-2022_solo-01.jpg" alt="Logo UTD">
             </div>
             <div class="titulo">
                 <h1>Nuestros profesores</h1>
@@ -42,12 +87,14 @@
         <main>
             <h2>Equipo docente</h2>
             <p>Ingeniería en Desarrollo y Gestión de Software</p>
+            <div id="lista-profesores"></div>
+
 
             <!-- Botón para agregar un nuevo profesor -->
             <button id="agregar-profesor" class="btn-agregar">Agregar Profesor</button>
 
             <!-- Contenedor vacío donde se generarán los profesores dinámicamente -->
-            <div id="lista-profesores"></div>
+          
         </main>
     </div>
 
